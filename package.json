@@ -1,0 +1,30 @@
+{
+  "name": "plethora-atlas-cli",
+  "version": "0.1.0",
+  "description": "Atlas CLI Helper Tool part of Plethora Atlas Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha specs"
+  },
+  "bin": {
+    "atlas": "./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PlethoraLabs/plethora-atlas-cli.git"
+  },
+  "author": "kostasx <minaidisk@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PlethoraLabs/plethora-atlas-cli/issues"
+  },
+  "homepage": "https://github.com/PlethoraLabs/plethora-atlas-cli#readme",
+  "dependencies": {
+    "adm-zip": "^0.4.7",
+    "colors": "^1.1.2",
+    "commander": "^2.9.0",
+    "home-dir": "^1.0.0",
+    "node-notifier": "^5.0.2",
+    "progress": "^1.1.8"
+  }
+}
