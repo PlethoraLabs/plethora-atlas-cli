@@ -13,10 +13,9 @@ global.homeDir 	   = homeDir
 global.modulesDir  = path.join( __dirname, 'node_modules/' )
 
 global.modules     = [] # STORES LOADED MODULES NAMES
-global.config      = require "#{homeDir}/config"
-global.config.keys = require "#{homeDir}/keys"
+global.config      = require path.join homeDir, "config"
+global.config.keys = require path.join homeDir, "keys"
 global.Helpers     = Core.Helpers
-Core.createPackagesDir()
 
 module.exports = ()->
 

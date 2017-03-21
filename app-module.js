@@ -25,13 +25,11 @@ global.modulesDir = path.join(__dirname, 'node_modules/');
 
 global.modules = [];
 
-global.config = require(homeDir + "/config");
+global.config = require(path.join(homeDir, "config"));
 
-global.config.keys = require(homeDir + "/keys");
+global.config.keys = require(path.join(homeDir, "keys"));
 
 global.Helpers = Core.Helpers;
-
-Core.createPackagesDir();
 
 module.exports = function() {
   console.log("PlethoraThemes".cyan + (" Atlas CLI v" + global.VERSION).magenta + (" [os:" + PLATFORM + "]").gray + (" [debug:" + global.DEBUG + "]").gray);

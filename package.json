@@ -25,6 +25,7 @@
     "commander": "^2.9.0",
     "home-dir": "^1.0.0",
     "node-notifier": "^5.0.2",
+    "plethora-atlas-core": "^0.1.0",
     "progress": "^1.1.8"
   }
 }
