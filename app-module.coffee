@@ -13,13 +13,22 @@ global.homeDir 	   = homeDir
 global.modulesDir  = path.join( __dirname, 'node_modules/' )
 
 global.modules     = [] # STORES LOADED MODULES NAMES
-global.config      = require path.join homeDir, "config"
-global.config.keys = require path.join homeDir, "keys"
-global.Helpers     = Core.Helpers
+global.config      = {}
+global.keys 	   = {}
 
-module.exports = ()->
+module.exports = new Promise((resolve,reject)->
 
-	console.log "PlethoraThemes".cyan + " Atlas CLI v#{global.VERSION}".magenta + " [os:#{PLATFORM}]".gray + " [debug:#{global.DEBUG}]".gray
-	Core.loadModules(program)
-	Core.init(program)
+		Core.initConfig({ version: global.VERSION })
+		.then((res)->
+
+			global.Helpers     = Core.Helpers
+			console.log "PlethoraThemes".cyan + " Atlas CLI v#{global.VERSION}".magenta + " [os:#{PLATFORM}]".gray + " [debug:#{global.DEBUG}]".gray
+			Core.loadModules(program)
+			Core.init({ program: program })
+			resolve({ msg: "Initializing..." })
+
+		).catch(console.log)
+
+).catch(console.log)
+
 

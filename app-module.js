@@ -25,14 +25,22 @@ global.modulesDir = path.join(__dirname, 'node_modules/');
 
 global.modules = [];
 
-global.config = require(path.join(homeDir, "config"));
+global.config = {};
 
-global.config.keys = require(path.join(homeDir, "keys"));
+global.keys = {};
 
-global.Helpers = Core.Helpers;
-
-module.exports = function() {
-  console.log("PlethoraThemes".cyan + (" Atlas CLI v" + global.VERSION).magenta + (" [os:" + PLATFORM + "]").gray + (" [debug:" + global.DEBUG + "]").gray);
-  Core.loadModules(program);
-  return Core.init(program);
-};
+module.exports = new Promise(function(resolve, reject) {
+  return Core.initConfig({
+    version: global.VERSION
+  }).then(function(res) {
+    global.Helpers = Core.Helpers;
+    console.log("PlethoraThemes".cyan + (" Atlas CLI v" + global.VERSION).magenta + (" [os:" + PLATFORM + "]").gray + (" [debug:" + global.DEBUG + "]").gray);
+    Core.loadModules(program);
+    Core.init({
+      program: program
+    });
+    return resolve({
+      msg: "Initializing..."
+    });
+  })["catch"](console.log);
+})["catch"](console.log);

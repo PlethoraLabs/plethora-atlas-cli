@@ -1,2 +1,7 @@
 #!/usr/bin/env node
-require("./app-module")();
+require("./app-module")
+.then(function(main){ 
+
+	main();
+
+});
