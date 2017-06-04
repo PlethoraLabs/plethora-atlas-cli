@@ -2,6 +2,6 @@
 require("./app-module")
 .then(function(main){ 
 
-	main();
+	// main();
 
-});
+}).catch(console.log);
