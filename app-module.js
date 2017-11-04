@@ -34,7 +34,6 @@ module.exports = new Promise(function(resolve, reject) {
     version: global.VERSION
   }).then(function(res) {
     global.Helpers = Core.Helpers;
-    console.log("PlethoraThemes".cyan + (" Atlas CLI v" + global.VERSION).magenta + (" [os:" + PLATFORM + "]").gray + (" [debug:" + global.DEBUG + "]").gray);
     Core.loadModules(program);
     Core.init({
       program: program

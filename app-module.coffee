@@ -22,7 +22,6 @@ module.exports = new Promise((resolve,reject)->
 		.then((res)->
 
 			global.Helpers     = Core.Helpers
-			console.log "PlethoraThemes".cyan + " Atlas CLI v#{global.VERSION}".magenta + " [os:#{PLATFORM}]".gray + " [debug:#{global.DEBUG}]".gray
 			Core.loadModules(program)
 			Core.init({ program: program })
 			resolve({ msg: "Initializing..." })
